@@ -40,7 +40,7 @@ public class Usuario{
      * Metodo get del Nombre
      * @return Nombre del usuario
      */
-    public getNombre(){
+    public String getNombre(){
         return nombre;
     }
 
@@ -49,7 +49,7 @@ public class Usuario{
      * Metodo get tiene Libro
      * @return True si el usuario ya tiene un libro, False si no tiene libro
      */
-    public getTieneLibro(){
+    public Boolean getTieneLibro(){
         return tieneLibro;
     }
 
@@ -57,7 +57,7 @@ public class Usuario{
      * Metodo get Estado actual
      * @return el Estado actual del Usuario
      */
-    public getEstadoActual(){
+    public EstadoUsuario getEstadoActual(){
         return estadoActual;
     }
 
@@ -65,7 +65,7 @@ public class Usuario{
      * Obtiene el estado actual del EstadoActivo
      * @return estadoActivo 
      */
-    public getEstadoActivo(){
+    public EstadoUsuario getEstadoActivo(){
         return estadoActivo;
     }
 
@@ -73,7 +73,7 @@ public class Usuario{
      * Obtiene el estado actual del EstadoMoroso
      * @¶eturn estadoMoroso
      */
-    public getEstadoMoroso(){
+    public EstadoUsuario getEstadoMoroso(){
         return estadoMoroso;
     }
 
@@ -81,7 +81,7 @@ public class Usuario{
      * Metodo set que cambia el estado del Usuario
      * @param estadoUsuario de tipo usuario al cual va a ser el nuevo estado del Usuario
      */
-    public setEstado(EstadoUSuario estadoUsuario){
+    public void setEstado(EstadoUSuario estadoUsuario){
         this.estadoUsuario = estadoUsuario;
     }
 
@@ -89,7 +89,7 @@ public class Usuario{
      * Metodo set que le cambia si el usuario tiene algo prestado
      * @param tienelibro con valor a si tiene un material o no
      */
-    public setTieneLibro(Boolean tieneLibro){
+    public void setTieneLibro(Boolean tieneLibro){
         this.tieneLibro = tieneLibro;
     }
 

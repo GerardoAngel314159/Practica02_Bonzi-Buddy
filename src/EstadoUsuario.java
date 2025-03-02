@@ -1,6 +1,6 @@
 public interface EstadoUsuario{
-    public pedirLibro(Libro libro);
-    public devolverlibro (Libro libro);
-    public renovarPrestamo (Libro libro);
-    public prestamoExpress(Libro Libro);
+    public pedirLibro(Material material);
+    public devolverlibro (Material material);
+    public renovarPrestamo (Material material);
+    public prestamoExpress(Material material);
 }

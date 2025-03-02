@@ -2,24 +2,35 @@ public class EstadoActivo implements EstadoUSuario{
 
     Usuario usario;
 
-    public pedirLibro(Material material){
+    public void pedirLibro(Material material){
         if(getTieneLibro()== False){
             this.setTieneLibro(True);
-            material.setEstadoMaterial(Prestado);//esta linea esta mal hasta que se haga la clase del material
+            material.setEstaLibre(False);
+            //linea que es por 15 dias 
         }else{
             System.out.println("No puedes pedir otro libro porque ya pediste prestado 1 libro");
         }
     }
 
-    public devolverLibro(Material material){
+    public void devolverLibro(Material material){
         this.setTieneLIbro(False);
-        material.setEstadoMaterial(Libre);//esta linea esta mal igual que la otra 
+        material.setEstaLibre(True);
         System.out.println("Has devuelto el libro" + material.getNombre());
     }
     
-    //public renovarPrestamo(Material material){
+    //public void renovarPrestamo(Material material){
     //    if (material.getEstado() == Prestado ){
     //    
     //    }
     //}
+
+    public void prestamoExpress(Material material){
+         if(getTieneLibro()== False){
+        this.setTieneLibro(True);
+        material.setEstaLibre(False);
+        //linea que solo es por 7 dias 
+        }else{
+            System.out.println("No puedes pedir otro libro porque ya pediste prestado 1 libro");
+        }
+    }
 }
