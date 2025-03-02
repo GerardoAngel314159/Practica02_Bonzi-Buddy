@@ -62,12 +62,17 @@ public class Usuario{
     }
 
     /**
-     *
+     * Obtiene el estado actual del EstadoActivo
+     * @return estadoActivo 
      */
     public getEstadoActivo(){
         return estadoActivo;
     }
 
+    /**
+     * Obtiene el estado actual del EstadoMoroso
+     * @¶eturn estadoMoroso
+     */
     public getEstadoMoroso(){
         return estadoMoroso;
     }
