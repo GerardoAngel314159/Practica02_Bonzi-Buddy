@@ -23,7 +23,7 @@ public class EstadoMoroso{
      * finalmente hace que el usuario sea activo de nuveo
      */
     public void devolverLibro(Material material){
-        this.setTieneLIbro(False);
+        this.setTieneLibro(False);
         material.setEstaLibre(True);
         this.setEstado( EstadoActivo);
         System.out.println("Has entregado el material a la biblioteca, por lo que su estado a sido cambiado a usuario Activo");;
