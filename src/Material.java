@@ -23,6 +23,7 @@ abstract class Material{
     protected int tiempoPrestado;
     protected Usuario rentado;
     protected Usuario reservado;
+    protected int limite;
 
     public Material(String nombre){
         this.nombre = nombre;
@@ -30,6 +31,7 @@ abstract class Material{
         tiempoPrestado = 0;
         rentado = null;
         reservado = null;
+        limite = 5;
     } 
 
     public String getNombre(){
@@ -62,10 +64,33 @@ abstract class Material{
 
     public void setUsuario(Usuario usuario){
         rentado = usuario;
+        estaLibre = false;
     }
 
-    public void getReservado(Usuario reservante){
+    public void liberaMaterial(){
+        rentado = null;
+        estaLibre = true;
+    }
+
+    public void setReservado(Usuario reservante){
         reservado = reservante;
+    }
+
+    public Usuario getReservado(){
+        return reservado;
+    }
+
+    public int getLimite(){
+        return limite;
+    }
+
+
+    public void setLimite(int limite){
+        this.limite = limite;
+    }
+
+    public void aumentaLimite(){
+        limite+= 5;
     }
 
     public abstract String toString();

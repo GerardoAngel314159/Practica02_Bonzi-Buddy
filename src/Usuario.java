@@ -30,6 +30,7 @@ public class Usuario{
      */
     private EstadoUsuario estadoMoroso;
 
+    private Material rentado;
 
     /**
      * Representa si el usuario ya tiene un libro porque lo ha pedido
@@ -40,6 +41,8 @@ public class Usuario{
         estadoActivo = new EstadoActivo();
         estadoMoroso = new EstadoMoroso();
         this.nombre = nombre;
+        tieneLibro = false;
+        rentado = null;
 
     }
     /**
@@ -50,7 +53,24 @@ public class Usuario{
         return nombre;
     }
 
+    public Material getMaterial(){
+        return rentado;
+    }
 
+    public void setMaterial(Material material){
+        rentado = material;
+        tieneLibro = true;
+        material.setUsuario(this);
+    }
+
+    public void liberarMaterial(){
+        if (rentado == null){
+            System.out.println(nombre + " no ha rentado ningun material");
+        } else {
+            rentado.liberaMaterial();
+            rentado = null;
+        }
+    }
     /**
      * Metodo get tiene Libro
      * @return True si el usuario ya tiene un libro, False si no tiene libro
@@ -95,8 +115,8 @@ public class Usuario{
      * Metodo set que le cambia si el usuario tiene algo prestado
      * @param tienelibro con valor a si tiene un material o no
      */
-    public void setTieneLibro(Boolean tieneLibro){
-        this.tieneLibro = tieneLibro;
+    public void resetTieneLibro(){
+        tieneLibro = false;
     }
 
 }

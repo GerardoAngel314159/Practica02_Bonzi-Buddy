@@ -8,7 +8,6 @@ public class EstadoActivo implements EstadoUsuario{
      * Representa al Usuario
      */
     Usuario usuario;
-    Material material;
     /**
      * Metodo que hace que un usuario pida prestado un material.
      * Verifica si el Usuario tiene algun material primero, si no tiene algo prestado se le da el libro, en otro caso se le niega
@@ -16,9 +15,8 @@ public class EstadoActivo implements EstadoUsuario{
      * 
      */
     public void pedirLibro(Material material){
-        if(usuario.getTieneLibro() == false){
-            usuario.setTieneLibro(true);
-            material.setEstaLibre(false);
+        if(!usuario.getTieneLibro()){
+            usuario.setMaterial(material);
             System.out.println(usuario.getNombre() + " ha rentado " + material.getNombre());
             //linea que es por 15 dias 
         }else{
@@ -32,27 +30,32 @@ public class EstadoActivo implements EstadoUsuario{
      * en otro caso no imprime un mensaje de error.
      */
     public void devolverLibro(Material material){
-        if(usuario.getTieneLibro() == true){
-        usuario.setTieneLibro(false);
-        material.setEstaLibre(true);
-        System.out.println("Has devuelto el libro" + material.getNombre());
-        }else{
+        if(!usuario.getTieneLibro()){
+            usuario.liberarMaterial();
+            System.out.println("Has devuelto el libro" + material.getNombre());
+        } else{
             System.out.println("No puede devolver algun material si no tiene uno prestado :)");
         }
     }
 
     public void prestamoExpress(Material material){
-         if(usuario.getTieneLibro()== false){
-        usuario.setTieneLibro(true);
-        material.setEstaLibre(false);
-        //linea que solo es por 7 dias 
+         if(!usuario.getTieneLibro()){
+            usuario.setMaterial(material);
+            material.setLimite(7);
+            //linea que solo es por 7 dias 
         }else{
-            System.out.println("No puedes pedir otro libro porque ya pediste prestado 1 libro");
+            System.out.println("No puedes pedir otro libro porque ya pediste prestado 1 libtro");
         }
     }
 
-    public void renovarPrestamo(Material material){
-        
+    public void renovarPrestamo(){
+        if (usuario.getMaterial() != null) {
+            if (usuario.getMaterial().getLimite() != 7 && usuario.getMaterial().getLimite()<=10){
+                usuario.getMaterial().aumentaLimite();
+                System.out.println(usuario.getNombre() + " ha extendido su renta, ahora su límite son " 
+                + usuario.getMaterial().getLimite() + " dias");
+            }
+        }
     }
 
     public void reservarLibro(Material material){

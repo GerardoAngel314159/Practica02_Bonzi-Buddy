@@ -23,7 +23,7 @@ public class EstadoMoroso implements EstadoUsuario{
      * finalmente hace que el usuario sea activo de nuveo
      */
     public void devolverLibro(Material material){
-        usuario.setTieneLibro(false);
+        usuario.resetTieneLibro();;
         material.setEstaLibre(true);
         usuario.setEstado( usuario.getEstadoActivo());
         System.out.println("Has entregado el material a la biblioteca, por lo que su estado a sido cambiado a usuario Activo");;
@@ -34,7 +34,7 @@ public class EstadoMoroso implements EstadoUsuario{
         + " hasta que devuleva el libro actual");
     }
 
-    public void renovarPrestamo(Material material){
+    public void renovarPrestamo(){
         System.out.println("No puedes renovar un prestamo siendo un usuario Moroso, devuelve el producto a la brevedad");
     }
 
