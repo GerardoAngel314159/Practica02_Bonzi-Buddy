@@ -44,21 +44,35 @@ public class EstadoActivo implements EstadoUsuario{
             material.setLimite(7);
             //linea que solo es por 7 dias 
         }else{
-            System.out.println("No puedes pedir otro libro porque ya pediste prestado 1 libtro");
+            System.out.println("No puedes pedir otro libro porque ya pediste prestado 1 libro");
         }
     }
 
     public void renovarPrestamo(){
-        if (usuario.getMaterial() != null) {
-            if (usuario.getMaterial().getLimite() != 7 && usuario.getMaterial().getLimite()<=10){
-                usuario.getMaterial().aumentaLimite();
+        Material material = usuario.getMaterial();
+        if (usuario.getTieneLibro()) {
+            if (material.getLimite() != 7 && material.getLimite()<=10){
+                material.aumentaLimite();
                 System.out.println(usuario.getNombre() + " ha extendido su renta, ahora su límite son " 
                 + usuario.getMaterial().getLimite() + " dias");
             }
+            else {
+                System.out.println("Ya ha excedido el llimite de renovaciones"
+                + " por favor regrese el libro en cuanto llegue a su fecha límite");
+            }
+        } else {
+            System.out.println("No tienes libro que renovar");
         }
     }
 
     public void reservarLibro(Material material){
-
+        if(material.getEstaLibre()){
+            System.out.println("El artículo está ya disponible, puede rentar sin necesidad de reservar");
+        } else if (material.getReservado() != null){
+            System.out.println("El libro se encuentra ocupado y reservado");
+        } else {
+            material.setReservado(usuario);
+            System.out.println(usuario.getNombre() + " ha reservado " + material.toString());
+        }
     }
 }

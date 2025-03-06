@@ -119,4 +119,24 @@ public class Usuario{
         tieneLibro = false;
     }
 
+    public void pedirLibro(Material material){
+        estadoActual.pedirLibro(material);
+    }
+
+    public void devolverLibro (Material material){
+        estadoActual.devolverLibro(material);;
+    }
+
+    public void renovarPrestamo (){
+        estadoActual.renovarPrestamo();
+    }
+
+    public void prestamoExpress(Material material){
+        estadoActual.prestamoExpress(material);
+    }
+    
+    public void reservarLibro(Material material){
+        estadoActual.reservarLibro(material);
+    }
+
 }
