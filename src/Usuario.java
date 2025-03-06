@@ -28,7 +28,7 @@ public class Usuario{
     /***
      * Estado Moroso del USuario
      */
-    private EstadoUSuario estadoMoroso;
+    private EstadoUsuario estadoMoroso;
 
 
     /**
@@ -36,6 +36,12 @@ public class Usuario{
      */
     private Boolean tieneLibro;
 
+    public Usuario(String nombre){
+        estadoActivo = new EstadoActivo();
+        estadoMoroso = new EstadoMoroso();
+        this.nombre = nombre;
+
+    }
     /**
      * Metodo get del Nombre
      * @return Nombre del usuario
@@ -81,8 +87,8 @@ public class Usuario{
      * Metodo set que cambia el estado del Usuario
      * @param estadoUsuario de tipo usuario al cual va a ser el nuevo estado del Usuario
      */
-    public void setEstado(EstadoUSuario estadoUsuario){
-        this.estadoUsuario = estadoUsuario;
+    public void setEstado(EstadoUsuario estadoUsuario){
+        estadoActual = estadoUsuario;
     }
 
     /**

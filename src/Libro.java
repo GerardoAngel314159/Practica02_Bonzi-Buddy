@@ -1,6 +1,6 @@
-public class Libro extends Material{
+// public class Libro extends Material{
 
-    private class IteratorArray implements Iterator{
+//     private class IteratorArray implements Iterator{
 
-    }
-}
+//     }
+// }

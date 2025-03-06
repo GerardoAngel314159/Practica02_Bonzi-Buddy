@@ -1,6 +1,6 @@
 public interface EstadoUsuario{
-    public pedirLibro(Material material);
-    public devolverlibro (Material material);
-    public renovarPrestamo (Material material);
-    public prestamoExpress(Material material);
+    public void pedirLibro(Material material);
+    public void devolverLibro (Material material);
+    public void renovarPrestamo (Material material);
+    public void prestamoExpress(Material material);
 }

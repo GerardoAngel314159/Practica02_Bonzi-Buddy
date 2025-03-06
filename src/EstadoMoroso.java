@@ -2,7 +2,7 @@
  * Clase que representa al estado moroso de un usuario en la biblioteca
  * Esta clase administra sus acciones del usuario cuando es moroso
  */
-public class EstadoMoroso{
+public class EstadoMoroso implements EstadoUsuario{
 
     /**
      * Representa al usuario
@@ -14,8 +14,8 @@ public class EstadoMoroso{
      * @param material que el usuario quiere pedir prestado
      */
     public void pedirLibro(Material material){
-        System.out.println("Lo sentimos, actualmente eres un usuario Moroso ,
-        por lo que no puedes pedir algun material nuevo hasta devolver lo que ha pedido");
+
+        System.out.println("Lo sentimos actualmente eres un usuario Moroso, por lo que no puedes pedir algun material nuevo hasta devolver lo que ha pedido");
     }
 
     /**
@@ -23,15 +23,19 @@ public class EstadoMoroso{
      * finalmente hace que el usuario sea activo de nuveo
      */
     public void devolverLibro(Material material){
-        this.setTieneLibro(False);
-        material.setEstaLibre(True);
-        this.setEstado( EstadoActivo);
+        usuario.setTieneLibro(false);
+        material.setEstaLibre(true);
+        usuario.setEstado( usuario.getEstadoActivo());
         System.out.println("Has entregado el material a la biblioteca, por lo que su estado a sido cambiado a usuario Activo");;
     }
 
-        public void prestamoExpress(Material material){
-            System.out.println("Lo sentimos, eres un usuario Moroso, por lo que no puede pedir ningun material de forma express hasta que devuleva el libro actual");
-        }
+    public void prestamoExpress(Material material){
+        System.out.println("Lo sentimos, eres un usuario Moroso, por lo que no puede pedir ningun material de forma express hasta que devuleva el libro actual");
+    }
+
+    public  void renovarPrestamo(Material material){
+
+    }
 
     }
 

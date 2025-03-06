@@ -26,7 +26,7 @@ abstract class Material{
     }
 
     public Boolean getEstaLibre(){
-        return estalibre;
+        return estaLibre;
     }
 
     public void setEstaLibre(Boolean estaLibre){
