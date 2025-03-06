@@ -7,8 +7,8 @@ abstract class Material{
     /**
      * Atributos de la clase 
      */
-
-
+    
+    
     /**
      * representa a el nombre del material
      */

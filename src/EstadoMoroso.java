@@ -42,5 +42,5 @@ public class EstadoMoroso implements EstadoUsuario{
         System.out.println("Lo sentimos, eres un usuario Moroso por lo que no podrás reservar ningun libro hasta devolver el tuyo");
     }
 
-    }
+}
 
