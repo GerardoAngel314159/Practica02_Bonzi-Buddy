@@ -40,12 +40,6 @@ public class EstadoActivo implements EstadoUsuario{
             System.out.println("No puede devolver algun material si no tiene uno prestado :)");
         }
     }
-    
-    //public void renovarPrestamo(Material material){
-    //    if (material.getEstado() == Prestado ){
-    //    
-    //    }
-    //}
 
     public void prestamoExpress(Material material){
          if(usuario.getTieneLibro()== false){

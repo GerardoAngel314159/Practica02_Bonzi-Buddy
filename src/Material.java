@@ -67,5 +67,7 @@ abstract class Material{
     public void getReservado(Usuario reservante){
         reservado = reservante;
     }
+
+    public abstract String toString();
 }
 
