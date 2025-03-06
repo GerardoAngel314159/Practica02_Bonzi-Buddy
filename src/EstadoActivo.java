@@ -58,10 +58,10 @@ public class EstadoActivo implements EstadoUsuario{
     }
 
     public void renovarPrestamo(Material material){
-
+        
     }
 
     public void reservarLibro(Material material){
-        
+
     }
 }

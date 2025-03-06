@@ -21,11 +21,15 @@ abstract class Material{
      */
     protected Boolean estaLibre;
     protected int tiempoPrestado;
+    protected Usuario rentado;
+    protected Usuario reservado;
 
     public Material(String nombre){
         this.nombre = nombre;
         estaLibre = true;
         tiempoPrestado = 0;
+        rentado = null;
+        reservado = null;
     } 
 
     public String getNombre(){
@@ -50,6 +54,18 @@ abstract class Material{
 
     public void aumentaTiemproPrestado(){
         tiempoPrestado++;
+    }
+
+    public Usuario getRentado(){
+        return rentado;
+    }
+
+    public void setUsuario(Usuario usuario){
+        rentado = usuario;
+    }
+
+    public void getReservado(Usuario reservante){
+        reservado = reservante;
     }
 }
 
