@@ -30,11 +30,16 @@ public class EstadoMoroso implements EstadoUsuario{
     }
 
     public void prestamoExpress(Material material){
-        System.out.println("Lo sentimos, eres un usuario Moroso, por lo que no puede pedir ningun material de forma express hasta que devuleva el libro actual");
+        System.out.println("Lo sentimos, eres un usuario Moroso por lo que no puede pedir ningun material de forma express" 
+        + " hasta que devuleva el libro actual");
     }
 
-    public  void renovarPrestamo(Material material){
+    public void renovarPrestamo(Material material){
+        System.out.println("No puedes renovar un prestamo siendo un usuario Moroso, devuelve el producto a la brevedad");
+    }
 
+    public void reservarLibro(Material material){
+        System.out.println("Lo sentimos, eres un usuario Moroso por lo que no podrás reservar ningun libro hasta devolver el tuyo");
     }
 
     }

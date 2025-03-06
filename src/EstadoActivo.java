@@ -8,7 +8,7 @@ public class EstadoActivo implements EstadoUsuario{
      * Representa al Usuario
      */
     Usuario usuario;
-
+    Material material;
     /**
      * Metodo que hace que un usuario pida prestado un material.
      * Verifica si el Usuario tiene algun material primero, si no tiene algo prestado se le da el libro, en otro caso se le niega
@@ -19,6 +19,7 @@ public class EstadoActivo implements EstadoUsuario{
         if(usuario.getTieneLibro() == false){
             usuario.setTieneLibro(true);
             material.setEstaLibre(false);
+            System.out.println(usuario.getNombre() + " ha rentado " + material.getNombre());
             //linea que es por 15 dias 
         }else{
             System.out.println("No puedes pedir otro libro porque ya pediste prestado 1 material");
@@ -58,5 +59,9 @@ public class EstadoActivo implements EstadoUsuario{
 
     public void renovarPrestamo(Material material){
 
+    }
+
+    public void reservarLibro(Material material){
+        
     }
 }

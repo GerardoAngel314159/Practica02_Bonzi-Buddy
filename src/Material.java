@@ -20,6 +20,13 @@ abstract class Material{
      * False cuando alguien lo tiene en su posesion porque lo pidio prestado
      */
     protected Boolean estaLibre;
+    protected int tiempoPrestado;
+
+    public Material(String nombre){
+        this.nombre = nombre;
+        estaLibre = true;
+        tiempoPrestado = 0;
+    } 
 
     public String getNombre(){
         return nombre;
@@ -31,6 +38,18 @@ abstract class Material{
 
     public void setEstaLibre(Boolean estaLibre){
         this.estaLibre = estaLibre;
+    }
+
+    public int getTiempoPrestado(){
+        return tiempoPrestado;
+    }
+
+    public void setTiempoPrestado(int i){
+        tiempoPrestado = i; 
+    }
+
+    public void aumentaTiemproPrestado(){
+        tiempoPrestado++;
     }
 }
 
