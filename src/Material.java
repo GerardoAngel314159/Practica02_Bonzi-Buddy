@@ -20,9 +20,26 @@ abstract class Material{
      * False cuando alguien lo tiene en su posesion porque lo pidio prestado
      */
     protected boolean estaLibre;
+
+    
+    /**
+     * Representa el tiempo por el cual el material va a ser prestado
+     */
     protected int tiempoPrestado;
+
+    /**
+     * Representa al usuario al que se le fue prestado el material
+     */
     protected Usuario rentado;
+
+    /**
+     * Representa al usuario que se le va a reservar el material
+     */
     protected Usuario reservado;
+
+    /**
+     * Representa a el numero de dias que es prestado el Material
+     */
     protected int limite;
 
     public Material(String nombre){
@@ -34,6 +51,10 @@ abstract class Material{
         limite = 5;
     } 
 
+    /**
+     * Obtiene el nombre del material
+     * @return String con valor al nombre del materiañ
+     */
     public String getNombre(){
         return nombre;
     }
