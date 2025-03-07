@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Esta clase representa una biblioteca de libos
@@ -13,6 +14,8 @@ public class BiblioLibros implements Iterable<Libro> {
      * Lista que almacena los libros
      */
     private List<Libro> libros;
+
+    int position = 0;
 
     /**
      * Constructor que inicializa la lista
@@ -36,5 +39,36 @@ public class BiblioLibros implements Iterable<Libro> {
     @Override
     public Iterator<Libro> iterator() {
         return libros.iterator();
+    }
+
+    private class IteradorLista implements Iterator{
+
+
+
+    /**
+    * Metodo que hace que la lista avance al siguiente elemento desde la posicion actual
+    */
+     public Material next(){
+        if (this.hasNext()){
+        Material libro = libros.get(position);
+        position++;
+        return libro;
+        }else{
+            throw new NoSuchElementException();
+        }
+     }
+
+     /**
+      * Metodo que verifica si hay mas elementos en la lista
+      * @return boolean con valor a True si hay mas elementos en la lista desde la posicion actual, en otro caso False
+      */
+     public boolean hasNext (){
+         if(position <libros.size()){
+             return true;
+         }else{
+             return false;
+         }
+
+    }
     }
 }

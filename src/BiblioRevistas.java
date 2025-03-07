@@ -62,7 +62,7 @@ public class BiblioRevistas implements Iterable<Revista> {
             * Retorna la siguiente revista en la coleccion
             * 
             * @return la siguiente revista
-            * @throws NosuchElementException si no hay mas revistas para rettornar
+            * @throws NosuchElementException si no hay mas revistas para retornar
             */
             @Override
             public Revista next() {

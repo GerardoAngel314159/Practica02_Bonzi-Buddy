@@ -38,6 +38,10 @@ public class EstadoActivo implements EstadoUsuario{
         }
     }
 
+    /**
+     *Metodo que hace un usuario pueda pedir un material solo por 7 dias 
+     *@param material de tipo Material es cual el usuario quiere pedir prestado
+     */
     public void prestamoExpress(Material material){
          if(!usuario.getTieneLibro()){
             usuario.setMaterial(material);

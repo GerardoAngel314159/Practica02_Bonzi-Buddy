@@ -30,6 +30,9 @@ public class Usuario{
      */
     private EstadoUsuario estadoMoroso;
 
+    /**
+     * representa al material que el usuario rento 
+     */
     private Material rentado;
 
     /**
@@ -37,6 +40,10 @@ public class Usuario{
      */
     private Boolean tieneLibro;
 
+    /**
+     * Constructor de la clase 
+     * @param nombre Nombre del usuario
+     */
     public Usuario(String nombre){
         estadoActivo = new EstadoActivo();
         estadoMoroso = new EstadoMoroso();
@@ -119,6 +126,10 @@ public class Usuario{
         tieneLibro = false;
     }
 
+    /**
+     * Hace que el usuario pueda pedir un libro  por 15 dias 
+     * @param material que el usuario quiere pedir prestado 
+     */
     public void pedirLibro(Material material){
         estadoActual.pedirLibro(material);
     }
