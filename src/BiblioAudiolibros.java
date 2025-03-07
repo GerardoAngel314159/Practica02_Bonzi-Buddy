@@ -26,6 +26,10 @@ public class BiblioAudiolibros implements Iterable<Audiolibro> {
      * @param clave la cable asociada al audioLibro 
      * @param audiolibro el objeto a agregar
      */
+    // public void addMaterial(Audiolibro audiolibro){
+    //     addAudiolibro(audiolibro.getNombre(), audiolibro);
+    // }
+
     public void addAudiolibro(String clave, Audiolibro audiolibro) {
         audiolibros.put(clave, audiolibro);
     }

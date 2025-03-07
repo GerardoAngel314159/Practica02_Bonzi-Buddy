@@ -42,6 +42,7 @@ public class BiblioLibros implements Iterable<Libro> {
     }
 
     
+    
 
     /**
     * Metodo que hace que la lista avance al siguiente elemento desde la posicion actual
@@ -65,7 +66,7 @@ public class BiblioLibros implements Iterable<Libro> {
              return true;
          }else{
              return false;
-         }
+        }
 
     }
 }
