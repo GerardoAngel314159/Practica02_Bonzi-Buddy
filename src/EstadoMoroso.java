@@ -9,6 +9,9 @@ public class EstadoMoroso implements EstadoUsuario{
      */
     private Usuario usuario;
 
+    public EstadoMoroso(Usuario usuario){
+        this.usuario = usuario;
+    }
     /**
      * Metodo pedirLibro que solo imprime un mensaje al usuario donde le dice que no puede pedir ningun libro prestado porque es moroso
      * @param material que el usuario quiere pedir prestado
@@ -23,7 +26,7 @@ public class EstadoMoroso implements EstadoUsuario{
      * finalmente hace que el usuario sea activo de nuveo
      */
     public void devolverLibro(Material material){
-        usuario.resetTieneLibro();;
+        usuario.resetTieneLibro();
         material.setEstaLibre(true);
         usuario.setEstado( usuario.getEstadoActivo());
         System.out.println("Has entregado el material a la biblioteca, por lo que su estado a sido cambiado a usuario Activo");;

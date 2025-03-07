@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
  * Tiene y administra una coleccion de objetos {@link Revista}
  * 
  */
-public class BiblioRevistas implements Iterable<Revista> {
+public class BiblioRevistas implements Iterable<Revista>{
 
     /**\
      * Arreglo que almacena las revistas
@@ -39,7 +39,7 @@ public class BiblioRevistas implements Iterable<Revista> {
             System.out.println("No se puede agregar más revistas.");
         }
     }
-
+ 
     /**
      * Retorna un iterador para recorrer las revistas
      * 
@@ -48,7 +48,7 @@ public class BiblioRevistas implements Iterable<Revista> {
     @Override
     public Iterator<Revista> iterator() {
         return new Iterator<Revista>() {
-            private int index = 0;
+            private int index;
             
             /**
              * checa si existen mas revistas en el arreglo
