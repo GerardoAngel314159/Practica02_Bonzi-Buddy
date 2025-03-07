@@ -7,7 +7,7 @@ public class EstadoMoroso implements EstadoUsuario{
     /**
      * Representa al usuario
      */
-    Usuario usuario;
+    private Usuario usuario;
 
     /**
      * Metodo pedirLibro que solo imprime un mensaje al usuario donde le dice que no puede pedir ningun libro prestado porque es moroso

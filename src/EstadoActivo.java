@@ -7,7 +7,7 @@ public class EstadoActivo implements EstadoUsuario{
     /**
      * Representa al Usuario
      */
-    Usuario usuario;
+    private Usuario usuario;
     /**
      * Metodo que hace que un usuario pida prestado un material.
      * Verifica si el Usuario tiene algun material primero, si no tiene algo prestado se le da el libro, en otro caso se le niega

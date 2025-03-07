@@ -38,7 +38,7 @@ public class Usuario{
     /**
      * Representa si el usuario ya tiene un libro porque lo ha pedido
      */
-    private Boolean tieneLibro;
+    private boolean tieneLibro;
 
     /**
      * Constructor de la clase 
@@ -82,7 +82,7 @@ public class Usuario{
      * Metodo get tiene Libro
      * @return True si el usuario ya tiene un libro, False si no tiene libro
      */
-    public Boolean getTieneLibro(){
+    public boolean getTieneLibro(){
         return tieneLibro;
     }
 
@@ -134,18 +134,31 @@ public class Usuario{
         estadoActual.pedirLibro(material);
     }
 
+    /**
+     * Metodo que hace que el usuario devuelva un material que ha pedido prestado
+     * @param material el cual el usuario va a devolver 
+     */
     public void devolverLibro (Material material){
         estadoActual.devolverLibro(material);;
     }
 
+    /**
+     * Metodo que renueva el prestamo cuando piden prestado normal cada 5 dias 
+     */
     public void renovarPrestamo (){
         estadoActual.renovarPrestamo();
     }
 
+    /**
+     * Hace que los Usuarios pueda pedir algun material de forma express, por 7 dias 
+     */
     public void prestamoExpress(Material material){
         estadoActual.prestamoExpress(material);
     }
     
+    /**
+     * Hace que el material que quiere el usuario lo pueda reserva, esto en caso de que alguien lo pidio antes 
+     */
     public void reservarLibro(Material material){
         estadoActual.reservarLibro(material);
     }

@@ -19,7 +19,7 @@ abstract class Material{
      * Cuando es True no lo tiene alguien prestado
      * False cuando alguien lo tiene en su posesion porque lo pidio prestado
      */
-    protected Boolean estaLibre;
+    protected boolean estaLibre;
     protected int tiempoPrestado;
     protected Usuario rentado;
     protected Usuario reservado;
@@ -38,11 +38,11 @@ abstract class Material{
         return nombre;
     }
 
-    public Boolean getEstaLibre(){
+    public boolean getEstaLibre(){
         return estaLibre;
     }
 
-    public void setEstaLibre(Boolean estaLibre){
+    public void setEstaLibre(boolean estaLibre){
         this.estaLibre = estaLibre;
     }
 
