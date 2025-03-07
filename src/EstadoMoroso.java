@@ -29,15 +29,28 @@ public class EstadoMoroso implements EstadoUsuario{
         System.out.println("Has entregado el material a la biblioteca, por lo que su estado a sido cambiado a usuario Activo");;
     }
 
+    /**
+     * Metodo que le dice al usuario moroso que no puede solicitar el prestamo expres 
+     * 
+     * @param material el libro que el usuario quiere pedir prestado
+     */
     public void prestamoExpress(Material material){
         System.out.println("Lo sentimos, eres un usuario Moroso por lo que no puede pedir ningun material de forma express" 
         + " hasta que devuleva el libro actual");
-    }
+    }  
 
+    /**
+     * Metodo que le dice al usuario que no puede renovar un pestamo sindo un usuario moroso
+     */
     public void renovarPrestamo(){
         System.out.println("No puedes renovar un prestamo siendo un usuario Moroso, devuelve el producto a la brevedad");
     }
 
+    /**
+     * Metodo que le dice al usuario que no puede reservar un libro siendo usuario moroso
+     * 
+     * @param material el libro que el usuario quiere reservar
+     */
     public void reservarLibro(Material material){
         System.out.println("Lo sentimos, eres un usuario Moroso por lo que no podrás reservar ningun libro hasta devolver el tuyo");
     }
