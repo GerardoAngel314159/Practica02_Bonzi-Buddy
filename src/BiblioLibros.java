@@ -41,9 +41,7 @@ public class BiblioLibros implements Iterable<Libro> {
         return libros.iterator();
     }
 
-    private class IteradorLista implements Iterator{
-
-
+    
 
     /**
     * Metodo que hace que la lista avance al siguiente elemento desde la posicion actual
@@ -69,6 +67,5 @@ public class BiblioLibros implements Iterable<Libro> {
              return false;
          }
 
-    }
     }
 }
