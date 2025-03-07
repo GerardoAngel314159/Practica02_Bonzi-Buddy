@@ -60,16 +60,29 @@ public class Usuario{
         return nombre;
     }
 
+    /**
+     * Metodo get del Material
+     * @return el tipo de material de lo rentado
+     */
     public Material getMaterial(){
         return rentado;
     }
 
+    /**
+     * Asigna un tipo de material al usuario y marca que tiene un libro rentado
+     * 
+     * @param material que sera rentado por el usuario
+     */
     public void setMaterial(Material material){
         rentado = material;
         tieneLibro = true;
         material.setUsuario(this);
     }
 
+    /**
+     * Pone en estado libre el Libro que rento el usuario
+     * Si no tiene un libro rentado, se indica que no ha rentado nada
+     */
     public void liberarMaterial(){
         if (rentado == null){
             System.out.println(nombre + " no ha rentado ningun material");
@@ -78,6 +91,7 @@ public class Usuario{
             rentado = null;
         }
     }
+
     /**
      * Metodo get tiene Libro
      * @return True si el usuario ya tiene un libro, False si no tiene libro
