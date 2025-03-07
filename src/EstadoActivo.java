@@ -14,6 +14,11 @@ public class EstadoActivo implements EstadoUsuario{
      * @param material el material que el usuario va a pedir prestado
      * 
      */
+
+     public EstadoActivo(Usuario usuario){
+        this.usuario = usuario;
+    }
+
     public void pedirLibro(Material material){
         if(!usuario.getTieneLibro()){
             usuario.setMaterial(material);

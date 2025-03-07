@@ -45,8 +45,8 @@ public class Usuario{
      * @param nombre Nombre del usuario
      */
     public Usuario(String nombre){
-        estadoActivo = new EstadoActivo();
-        estadoMoroso = new EstadoMoroso();
+        estadoActivo = new EstadoActivo(this);
+        estadoMoroso = new EstadoMoroso(this);
         this.nombre = nombre;
         tieneLibro = false;
         rentado = null;
