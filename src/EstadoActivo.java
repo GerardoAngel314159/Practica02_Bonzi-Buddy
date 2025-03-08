@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
 /**
  * Clase que representa el estado Activo de los usarios de la biblioteca 
  * Esta clase Administra las acciones que puede realizar las acciones cuando el usuario tiene un estado activo
@@ -21,8 +24,19 @@ public class EstadoActivo implements EstadoUsuario{
 
     public void pedirLibro(Material material){
         if(!usuario.getTieneLibro()){
-            usuario.setMaterial(material);
-            System.out.println(usuario.getNombre() + " ha rentado " + material.getNombre());
+            if (material.getEstaLibre()){
+
+                usuario.setMaterial(material);
+                System.out.println("\n"+ usuario.getNombre() + " ha rentado " + material.getNombre());
+            } else{
+
+                Scanner sc = new  Scanner(System.in);
+
+                System.out.println("El libro ya se encuentra rentado por " + material.getRentado().getNombre() +" Deseas reservarlo? 1)Si 2)no");
+                String eleccion = sc.nextLine();
+                int opcion = Integer.parseInt(eleccion);
+                if (opcion == 1) this.reservarLibro(material);
+            }
             //linea que es por 15 dias 
         }else{
             System.out.println("No puedes pedir otro libro porque ya pediste prestado 1 material");

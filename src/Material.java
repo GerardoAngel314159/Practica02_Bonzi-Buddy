@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
 /**
  * Clase abstracta que representa a los materiales que maneja la biblioteca
  * De esta clase heredan los libro, audiolibros y revistas 
@@ -101,6 +104,10 @@ abstract class Material{
      * Le incrementa 1 al TiempoPrestado
      */
     public void aumentaTiemproPrestado(){
+        if (tiempoPrestado >limite){
+            System.out.println("\n" + rentado.getNombre() + " ha excedido su renta, Ahora se encuentra en estado moroso");
+            rentado.setEstado(rentado.getEstadoMoroso());        
+        }
         tiempoPrestado++;
     }
 
@@ -128,12 +135,31 @@ abstract class Material{
     public void liberaMaterial(){
         rentado = null;
         estaLibre = true;
+        tiempoPrestado = 0;
+        rentado.setEstado(rentado.getEstadoActivo());
+        if (reservado != null ){           
+        this.notificar();
+        }
+
     }
 
+    public void notificar(){
+        Scanner sc = new Scanner(System.in);
+        String eleccion;
+        int opcion;
+        System.out.println(this.getNombre() + " ha sido liberado");
+        System.out.println(reservado.getNombre() + "\nHabias reservado, Deseas rentarlo? 1)si 2)no" );
+        eleccion = sc.nextLine();
+        opcion = Integer.parseInt(eleccion);
+        if (opcion== 1) reservado.pedirLibro(this);
+        reservado = null;
+    }
+    
     /**
      * reserva el material al usuario que lo quiere reservar
      * @param reservante de tipo Usuario 
      */
+
     public void setReservado(Usuario reservante){
         reservado = reservante;
     }
