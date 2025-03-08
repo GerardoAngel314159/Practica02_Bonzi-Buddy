@@ -8,15 +8,16 @@ public class Libro extends Material{
      * 
      * @param nombre del libro
      */
+
     public Libro( String nombre){
        super(nombre);
     }
-
+    
     /**
      * @return una cadena con los nombres de los Libros
      */
     public String toString(){
-        return ("Libro: " + this.getNombre());
+        return ("Libro: " + this.getNombre() + this.formato);
     }
 
 }

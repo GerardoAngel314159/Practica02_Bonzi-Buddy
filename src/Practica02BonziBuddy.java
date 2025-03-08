@@ -165,9 +165,31 @@ public class Practica02BonziBuddy{
             eleccion = sc.nextLine();
             opcion = Integer.parseInt(eleccion);
             if (opcion == 1){
-                if (material.getEstaLibre()) prestados.add(material);
-                if (tipoDeRenta == 1)visitante.pedirLibro(material);
-                else visitante.prestamoExpress(material);
+
+                if (material.getEstaLibre()){
+                    imp("elija su formato de libro \n1)PDF \n2)MOBI \n3) EPUB");
+                    eleccion = sc.nextLine();
+                    opcion = Integer.parseInt(eleccion);
+    
+                    switch (opcion) {
+                        case 1:
+                            material.setFormato(".PDF");
+                            break;
+                        case 2:
+                            material.setFormato(".MOBI");
+                            break;
+                        case 3:
+                            material.setFormato(".EPUB");
+                            break;
+                        default:                        
+                            break;
+                    }
+                    
+                    prestados.add(material);
+                    if (tipoDeRenta == 1)visitante.pedirLibro(material);
+                    else visitante.prestamoExpress(material);
+                }
+
                 break;
             }
         }

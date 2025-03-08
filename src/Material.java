@@ -40,6 +40,7 @@ abstract class Material{
      */
     protected Usuario reservado;
 
+    protected String formato;
     /**
      * Representa a el numero de dias que es prestado el Material
      */
@@ -55,6 +56,7 @@ abstract class Material{
         tiempoPrestado = 0;
         rentado = null;
         reservado = null;
+        formato= "";
         limite = 5;
     } 
 
@@ -168,6 +170,14 @@ abstract class Material{
         reservado = null;
     }
     
+    public void setFormato(String formato){
+        this.formato = formato;
+    }
+
+    public String getFormato(){
+        return formato;
+    }
+
     /**
      * reserva el material al usuario que lo quiere reservar
      * @param reservante de tipo Usuario 
@@ -185,6 +195,9 @@ abstract class Material{
         return reservado;
     }
 
+    public void aumentaLimite(){
+        limite+=5;
+    }
     /**
      * Obtiene el limite de tiempo de dias que se reservo el material
      * @return int con valor al limite de dias del prestamo
@@ -203,12 +216,6 @@ abstract class Material{
 
     }
 
-    /**
-     * aumenta el limite de dias con 5 adicionales
-     */
-    public void aumentaLimite(){
-        limite+= 5;
-    }
     /**
      * Metodo toString que las clases implementaran
      */
