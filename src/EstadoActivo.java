@@ -71,6 +71,10 @@ public class EstadoActivo implements EstadoUsuario{
         }
     }
 
+    /**
+     * Metodo que permite a al usuario renovar su prestamo del libro si aun esta dentro del limite de prestamos
+     * No permite renovar si ya llegaste al limite de prestamos o es fue un prestamo expres
+     */
     public void renovarPrestamo(){
         Material material = usuario.getMaterial();
         if (usuario.getTieneLibro()) {
@@ -80,7 +84,7 @@ public class EstadoActivo implements EstadoUsuario{
                 + usuario.getMaterial().getLimite() + " dias");
             }
             else {
-                System.out.println("Ya ha excedido el llimite de renovaciones"
+                System.out.println("Ya ha excedido el limite de renovaciones"
                 + " por favor regrese el libro en cuanto llegue a su fecha límite");
             }
         } else {
@@ -88,6 +92,13 @@ public class EstadoActivo implements EstadoUsuario{
         }
     }
 
+    /**
+     * Metodo que permite al usuario reservar un libro si no esta disponible
+     * Si esta disponible, se recomienda que lo rente directamente 
+     * Si ya esta reservado, se informa que el libro no esta disponible
+     * 
+     * @param material el libro que el usuario quiere reservar
+     */
     public void reservarLibro(Material material){
         if(material.getEstaLibre()){
             System.out.println("El artículo está ya disponible, puede rentar sin necesidad de reservar");

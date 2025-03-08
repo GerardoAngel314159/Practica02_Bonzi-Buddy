@@ -1,17 +1,11 @@
 
 public class Distribuidor {
-    private BiblioLibros libros;
-    private BiblioAudiolibros audiolibros;
-    private BiblioRevistas revistas;
 
     public Distribuidor(){
-        libros = new BiblioLibros();
-        audiolibros = new BiblioAudiolibros();
-        revistas = new BiblioRevistas(20);
     }
 
     public BiblioLibros getLibrosComedia(){
-        libros.limpiaBiblioteca();
+        BiblioLibros libros = new BiblioLibros();
         libros.addLibro(new Libro("La divina Comedia"));
         libros.addLibro(new Libro("Chistes canijos"));
         libros.addLibro(new Libro("Chistes de Franco Escamilla"));
@@ -19,7 +13,7 @@ public class Distribuidor {
     }
 
     public BiblioLibros getLibrosCiencia(){
-        libros.limpiaBiblioteca();
+        BiblioLibros libros = new BiblioLibros();
         libros.addLibro(new Libro("Calculo II"));
         libros.addLibro(new Libro("Física para fisicos"));
         libros.addLibro(new Libro("¿Los actuarios deberían estar en la fac?(tesis)"));
@@ -27,7 +21,7 @@ public class Distribuidor {
     }
 
     public BiblioLibros getLibrosNovelas(){
-        libros.limpiaBiblioteca();
+        BiblioLibros libros = new BiblioLibros(); 
         libros.addLibro(new Libro("Harry Potter"));
         libros.addLibro(new Libro("Divergente"));
         libros.addLibro(new Libro("Los juegos del hambre"));
@@ -35,7 +29,7 @@ public class Distribuidor {
     }
 
     public BiblioAudiolibros getAudioPodcast(){
-        audiolibros.limpiaBiblioteca();
+        BiblioAudiolibros audiolibros = new BiblioAudiolibros();        
         audiolibros.addAudiolibro("Ricos hablan de pobreza", new Audiolibro("Ricos hablan de pobreza"));
         audiolibros.addAudiolibro("La pizza con piña", new Audiolibro("La pizza con piña"));
         audiolibros.addAudiolibro("Las alucinas", new Audiolibro("Las alucinas"));
@@ -43,6 +37,7 @@ public class Distribuidor {
     }
 
     public BiblioAudiolibros getAudioHistorias(){
+        BiblioAudiolibros audiolibros = new BiblioAudiolibros();        
         audiolibros.limpiaBiblioteca();
         audiolibros.addAudiolibro("La liebre y la tortuga", new Audiolibro("La liebre y la tortuga"));
         audiolibros.addAudiolibro("De majikarp a gyarados", new Audiolibro("De majikarp a gyarados"));
@@ -52,6 +47,7 @@ public class Distribuidor {
     }
 
     public BiblioAudiolibros getAudioCanciones(){
+        BiblioAudiolibros audiolibros = new BiblioAudiolibros();        
         audiolibros.limpiaBiblioteca();
         audiolibros.addAudiolibro("Corazon de melon", new Audiolibro("Corazon de melon"));
         audiolibros.addAudiolibro("Vaquero", new Audiolibro("Vaquero"));
@@ -61,7 +57,7 @@ public class Distribuidor {
     }
     
     public BiblioRevistas getRevistasCotilleo(){
-        revistas.limpiaBiblioteca();
+        BiblioRevistas revistas = new BiblioRevistas(20);        
         revistas.addRevista(new Revista("Joshua tiene dientes ficticios"));
         revistas.addRevista(new Revista("Diez celebridades que son pelonas"));
         revistas.addRevista(new Revista("El fin de Emma y Andrew"));
@@ -70,7 +66,7 @@ public class Distribuidor {
     }
 
     public BiblioRevistas getRevistasRomance(){
-        revistas.limpiaBiblioteca();
+        BiblioRevistas revistas = new BiblioRevistas(20);                
         revistas.addRevista(new Revista("Como cocinar para tu pareja"));
         revistas.addRevista(new Revista("Cinco ideas para tu aniversario"));
         revistas.addRevista(new Revista("Como enamorar a tu crush"));
@@ -79,11 +75,10 @@ public class Distribuidor {
     }
 
     public BiblioRevistas getRevistasPokemon(){
-        revistas.limpiaBiblioteca();
+        BiblioRevistas revistas = new BiblioRevistas(20);        
         revistas.addRevista(new Revista("Los pseudolegendarios de cada region"));
         revistas.addRevista(new Revista("El sufrimiento de machamp"));
         revistas.addRevista(new Revista("¿Por qué todos elijen a charmander?"));
-
         return revistas;
     }
 }
