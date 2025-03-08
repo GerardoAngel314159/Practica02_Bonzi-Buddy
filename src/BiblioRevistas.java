@@ -39,6 +39,13 @@ public class BiblioRevistas implements Iterable<Revista>{
             System.out.println("No se puede agregar más revistas.");
         }
     }
+
+    public void limpiaBiblioteca(){
+        for (int i = 0 ;i<revistas.length;i++){
+            revistas[i] = null;
+        }
+        count = 0;
+    }
  
     /**
      * Retorna un iterador para recorrer las revistas

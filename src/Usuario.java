@@ -47,6 +47,7 @@ public class Usuario{
     public Usuario(String nombre){
         estadoActivo = new EstadoActivo(this);
         estadoMoroso = new EstadoMoroso(this);
+        estadoActual = estadoActivo;
         this.nombre = nombre;
         tieneLibro = false;
         rentado = null;

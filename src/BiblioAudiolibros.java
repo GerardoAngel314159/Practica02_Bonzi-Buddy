@@ -20,6 +20,9 @@ public class BiblioAudiolibros implements Iterable<Audiolibro> {
         audiolibros = new Hashtable<>();
     }
 
+    public void limpiaBiblioteca(){
+        audiolibros.clear();
+    }
     /**
      * Agrega un audioLibro a la biblioteca
      * 

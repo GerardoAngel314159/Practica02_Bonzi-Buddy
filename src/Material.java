@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
 /**
  * Clase abstracta que representa a los materiales que maneja la biblioteca
  * De esta clase heredan los libro, audiolibros y revistas 
@@ -70,8 +73,22 @@ abstract class Material{
     public void liberaMaterial(){
         rentado = null;
         estaLibre = true;
+        if (reservado != null ){           
+        this.notificar();
+        }
+
     }
 
+    public void notificar(){
+        Scanner sc = new Scanner(System.in);
+        String eleccion;
+        int opcion;
+        System.out.println(this.getNombre() + " ha sido liberado");
+        System.out.println(reservado.getNombre() + "\nHabias reservado, Deseas rentarlo? 1)si 2)no" );
+        eleccion = sc.nextLine();
+        opcion = Integer.parseInt(eleccion);
+        if (opcion== 1) reservado.pedirLibro(this);
+    }
     public void setReservado(Usuario reservante){
         reservado = reservante;
     }

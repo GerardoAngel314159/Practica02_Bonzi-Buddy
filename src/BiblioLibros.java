@@ -31,6 +31,9 @@ public class BiblioLibros implements Iterable<Libro> {
         libros.add(libro);
     }
 
+    public void limpiaBiblioteca(){
+        libros.clear();
+    }
     /**
      * Retorna un iterador que recorre la coleccion de libros
      * 
