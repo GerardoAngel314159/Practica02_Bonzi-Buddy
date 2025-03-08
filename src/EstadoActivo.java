@@ -23,10 +23,16 @@ public class EstadoActivo implements EstadoUsuario{
     }
 
     public void pedirLibro(Material material){
+        rentar(material, 5);
+    }
+
+    private void rentar(Material material, int limite){
+
         if(!usuario.getTieneLibro()){
             if (material.getEstaLibre()){
-
                 usuario.setMaterial(material);
+                material.setLimite(limite);
+
                 System.out.println("\n"+ usuario.getNombre() + " ha rentado " + material.getNombre());
             } else{
 
@@ -42,7 +48,6 @@ public class EstadoActivo implements EstadoUsuario{
             System.out.println("No puedes pedir otro libro porque ya pediste prestado 1 material");
         }
     }
-
     /**
      * Metodo que hace que el usuario devuelva un material a la biblioteca
      * Verifica que el usuario tenga algun material prestado para poder devolver
@@ -62,13 +67,7 @@ public class EstadoActivo implements EstadoUsuario{
      *@param material de tipo Material es cual el usuario quiere pedir prestado
      */
     public void prestamoExpress(Material material){
-         if(!usuario.getTieneLibro()){
-            usuario.setMaterial(material);
-            material.setLimite(7);
-            //linea que solo es por 7 dias 
-        }else{
-            System.out.println("No puedes pedir otro libro porque ya pediste prestado 1 libro");
-        }
+        rentar(material, 7);
     }
 
     /**

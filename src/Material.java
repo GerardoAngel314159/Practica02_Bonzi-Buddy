@@ -133,10 +133,13 @@ abstract class Material{
      * cambia estaLibre a true 
      */
     public void liberaMaterial(){
+        if (rentado != null){
+            rentado.setEstado(rentado.getEstadoActivo());
+            System.out.println("Gracias por devolver el material " + rentado.getNombre() + " vuelve pronto :)");
+        }    
         rentado = null;
         estaLibre = true;
         tiempoPrestado = 0;
-        rentado.setEstado(rentado.getEstadoActivo());
         if (reservado != null ){           
         this.notificar();
         }
@@ -186,6 +189,8 @@ abstract class Material{
      */
     public void setLimite(int limite){
         this.limite = limite;
+        System.out.println("\nel limite para devolver este libro es " +limite);
+
     }
 
     /**
