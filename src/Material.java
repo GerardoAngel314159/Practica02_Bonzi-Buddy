@@ -146,7 +146,17 @@ abstract class Material{
 
     }
 
-    public void notificar(){
+    /**
+    * Notifica al usuario que había reservado el libro de que este ha sido liberado.
+    * 
+    * <p>
+    * Muestra un mensaje informando que el libro está disponible y pregunta al usuario 
+    * si desea rentarlo. Si el usuario elige "sí", se invoca el método {@code pedirLibro}
+    * del usuario reservado, pasándole el material actual. 
+    * Finalmente, se cancela la reserva.
+    * </p>
+    */
+       public void notificar(){
         Scanner sc = new Scanner(System.in);
         String eleccion;
         int opcion;

@@ -40,7 +40,7 @@ public class EstadoMoroso implements EstadoUsuario{
     public void prestamoExpress(Material material){
         System.out.println("Lo sentimos, eres un usuario Moroso por lo que no puede pedir ningun material de forma express" 
         + " hasta que devuleva el libro actual");
-    }
+    }  
 
     /**
      * Metodo que le dice al usuario que no puede renovar un pestamo sindo un usuario moroso

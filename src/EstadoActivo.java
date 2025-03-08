@@ -22,6 +22,18 @@ public class EstadoActivo implements EstadoUsuario{
         this.usuario = usuario;
     }
 
+    /**
+     * Permite al usuario pedir un libro prestado
+     * 
+     * <p>
+     * Si el usuario no tiene un libro prestado y el libro esta libre 
+     * se le da el libro al usuario y se imprime un mensaje confirmando el prestamo
+     * Si el libro no esta disponible, se le pregunta al usuario si lo quiere reservar
+     * en caso de que sea asi, se procede a reservar el libro
+     * <p>
+     * 
+     * @param material el libro que quiere el usuario
+     */
     public void pedirLibro(Material material){
         rentar(material, 5);
     }
