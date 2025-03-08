@@ -66,7 +66,7 @@ public class Practica02BonziBuddy{
             }
             if (opcion1 == 5) break;
             System.out.println("\nHola " + visitante.getNombre() + "!! Que quieres hacer hoy?");
-            System.out.println("\n1) Prestamo normal \n2) Prestamo express \n3) Devolver libro \n4) Salir por hoy");
+            System.out.println("\n1) Prestamo normal \n2) Prestamo express \n3) Devolver material \n4) Renovar material\n5) Salir por hoy");
             eleccion2 = sc.nextLine();
             opcion2 = Integer.parseInt(eleccion2);
 
@@ -78,7 +78,9 @@ public class Practica02BonziBuddy{
                 case 3:
                     prestados.remove(visitante.getMaterial());
                     visitante.liberarMaterial();
-                    break;                
+                    break;
+                case 4:
+                    visitante.renovarPrestamo();                
                 default:
                     break;
             }
