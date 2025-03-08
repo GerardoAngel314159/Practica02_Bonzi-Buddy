@@ -2,10 +2,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Simulamos un sistema de biblioteca digital donde los usuarios pueden pedir matrial prestado.
+ * Permite realizar préstamos normales, express, renovaciones y devoluciones.
+ * El sistema avanza por días y lleva un registro del tiempo de préstamo.
+ */
 public class Practica02BonziBuddy{
-    public static void main(String[] args) {        
 
-        int dia = 1;
+     /**
+     * Método main que ejecuta la simulación de la biblioteca digital.
+     * 
+     * @param args
+     */
+    public static void main(String[] args) {
+
+        //Variables del sistema
+        int dia = 0;
         int opcion1;
         int opcion2;
         String eleccion1;
@@ -13,10 +25,12 @@ public class Practica02BonziBuddy{
         Usuario visitante = new Usuario(":p");
         Scanner sc = new Scanner(System.in);
         
+        //Usuarios
         Usuario luis = new Usuario("Luis");
         Usuario gera = new Usuario("Gera");
         Usuario gabo = new Usuario("Gabo");
 
+        //Distribuidor que nos manda el material
         Distribuidor distribuidor = new Distribuidor();
         BiblioLibros librosCiencia = distribuidor.getLibrosCiencia();
         BiblioLibros librosNovelas = distribuidor.getLibrosNovelas();
@@ -28,22 +42,19 @@ public class Practica02BonziBuddy{
         BiblioAudiolibros audioCanciones = distribuidor.getAudioCanciones();
         BiblioAudiolibros audioPodcast = distribuidor.getAudioPodcast();
 
+        //Lista del material prestado
         List<Material> prestados = new ArrayList<>();
 
         System.out.println("Bienvenido a la biblioteca digital\nDisfruta de libre renta pero devuelve tu material en tiempo");
+
+        //Simulacion del sistema de la biblioteca
         do { 
-            System.out.println("\nDia " + dia);
-
-                System.out.println("Material prestado: ");
-            for (Material mat : prestados) {
-                System.out.println(mat.toString()+ " dias prestado: " + mat.getTiempoPrestado());
-            }
-
-            System.out.println("\n¿Quien nos visita hoy? \n1) Luis \n2) Gabo \n3) Gera \n4) Ir al dia siguiente \n5) Salir Del Sistema ");
+            System.out.println("Dia " + dia);
+            System.out.println("\n¿Quien nos visita hoy? \n1) Luis \n2) Gabo \n3) Gera \n4) Salir Del Sistema");
             eleccion1 = sc.nextLine();
             opcion1 = Integer.parseInt(eleccion1);
             
-
+            //Seleccion del usuario
             switch (opcion1){
                 case 1:
                     visitante = luis;
@@ -55,108 +66,104 @@ public class Practica02BonziBuddy{
                     visitante = gera;
                     break;
                 case 4:
-                    finDelDia(prestados);
-                    dia++;
-                    continue;
-                case 5:
                     break;
                 default:
                     System.out.println("Elije una opcion válida");
-                    continue;
-            }
-            if (opcion1 == 5) break;
+            } 
+
+            //opciones de acciones de los usuarios
+            if (opcion1 == 4) break;
             System.out.println("\nHola " + visitante.getNombre() + "!! Que quieres hacer hoy?");
-            System.out.println("\n1) Prestamo normal \n2) Prestamo express \n3) Devolver material \n4) Renovar material\n5) Salir por hoy");
+            System.out.println("\n1) Rentar Libro \n2) Devolver libro \n3) Salir por hoy");
             eleccion2 = sc.nextLine();
             opcion2 = Integer.parseInt(eleccion2);
 
+            //Accion segun el tipo de material seleccionado
             switch (opcion2) {
                 case 1:
+                    System.out.println("\nSelecciona la categoría de tu preferencia");
+                    System.out.println("Libros:\n\t1) Ciencias \n\t2) Novelas \n\t3) Comedia");
+                    System.out.println("Revistas:\n\t1) Romance \n\t2) Cotilleo \n\t3) Pokemon");
+                    System.out.println("Audiolibros:\n\t1) Historias \n\t2) Canciones \n\t3) Podcast");
+                    eleccion2 = sc.nextLine();
+                    opcion2 = Integer.parseInt(eleccion2);
+
+                    switch (opcion2) {
+                        case 1:
+                            recorrerLibros(librosCiencia, visitante);
+                            break;
+                        case 2:
+                            recorrerLibros(librosNovelas, visitante);
+                            break;
+                        case 3:
+                            recorrerLibros(librosComedia, visitante);
+                            break;
+                        case 4:
+                            recorrerRevistas(revistasRomance, visitante);
+                            break;
+                        case 5:
+                            recorrerRevistas(revistasChisme, visitante);
+                            break;
+                        case 6:
+                            recorrerRevistas(revistasPokemon, visitante);
+                            break;
+                        case 7:
+                            recorrerAudiolibros(audioHitorias, visitante);
+                            break;
+                        case 8:
+                            recorrerAudiolibros(audioCanciones, visitante);
+                            break;
+                        case 9:
+                            recorrerAudiolibros(audioPodcast, visitante);
+                            break;
+                        default:
+                            System.out.println("por favor elije una opcion valida");
+                    }
+                    
                     break;
                 case 2:
-                    break;
-                case 3:
-                    prestados.remove(visitante.getMaterial());
+                    //Devolver material
                     visitante.liberarMaterial();
-                    break;
-                case 4:
-                    visitante.renovarPrestamo();                
+                    break;                
                 default:
-                    break;
+                    throw new AssertionError();
             }
 
-            if ((opcion2 !=1) && (opcion2 != 2)){
-                finDelDia(prestados);
-                dia++;
-                continue;
-            }
-            
-            if ((opcion2 !=1) && (opcion2 != 2)) break;
-
-            System.out.println("\nSelecciona la categoría de tu preferencia");
-            System.out.println("Libros:\n\t1) Ciencias \n\t2) Novelas \n\t3) Comedia");
-            System.out.println("Revistas:\n\t4) Romance \n\t5) Cotilleo \n\t6) Pokemon");
-            System.out.println("Audiolibros:\n\t7) Historias \n\t8) Canciones \n\t9) Podcast");
-            eleccion2 = sc.nextLine();
-            opcion2 = Integer.parseInt(eleccion2);
-            
-            int tipoDeRenta = opcion2;
-
-            switch (opcion2) {
-                case 1:
-                    recorrerLibros(librosCiencia, visitante, prestados, tipoDeRenta);
-                    break;
-                case 2:
-                    recorrerLibros(librosNovelas, visitante, prestados, tipoDeRenta);
-                    break;
-                case 3:
-                    recorrerLibros(librosComedia, visitante, prestados, tipoDeRenta);
-                    break;
-                case 4:
-                    recorrerRevistas(revistasRomance, visitante, prestados, tipoDeRenta);
-                    break;
-                case 5:
-                    recorrerRevistas(revistasChisme, visitante, prestados, tipoDeRenta);
-                    break;
-                case 6:
-                    recorrerRevistas(revistasPokemon, visitante, prestados, tipoDeRenta);
-                    break;
-                case 7:
-                    recorrerAudiolibros(audioHitorias, visitante, prestados, tipoDeRenta);
-                    break;
-                case 8:
-                    recorrerAudiolibros(audioCanciones, visitante, prestados, tipoDeRenta);
-                    break;
-                case 9:
-                    recorrerAudiolibros(audioPodcast, visitante, prestados, tipoDeRenta);
-                    break;
-                default:
-                    System.out.println("por favor elije una opcion valida");
-            }
-
+            //Fin del dia (Aumenta el tiempo de prestamo)
             finDelDia(prestados);
             dia++;
-
+            
+            if (opcion1 == 4) break;
         } while (true);
     }
 
-
-
-    public static void prestamo(int opcion){
-
-    }
-
+    /**
+     * Imprime el mensaje correspondiente
+     * 
+     * @param mensaje
+     */
     public static void imp(String mensaje){
         System.out.println(mensaje);
     }
 
+    /**
+     * Simula el avance del tiempo
+     * 
+     * @param lista Lista de materiales prestados durante el dia
+     */
     public static void finDelDia(List<Material> lista){
         for (Material mat : lista) {
             mat.aumentaTiemproPrestado();
         }
-    }
+    }   
 
-    public static void recorrerLibros(BiblioLibros libros, Usuario visitante, List<Material> prestados, int tipoDeRenta){
+    /**
+     * Permite recorrer la lista de libros de alguna categoria y poder pedir un prestamo
+     * 
+     * @param libros
+     * @param visitante
+     */
+    public static void recorrerLibros(BiblioLibros libros, Usuario visitante){
         Scanner sc = new Scanner(System.in);
         int opcion;
         String eleccion;
@@ -165,6 +172,7 @@ public class Practica02BonziBuddy{
             eleccion = sc.nextLine();
             opcion = Integer.parseInt(eleccion);
             if (opcion == 1){
+<<<<<<< HEAD
 
                 if (material.getEstaLibre()){
                     imp("elija su formato de libro \n1)PDF \n2)MOBI \n3) EPUB");
@@ -190,12 +198,21 @@ public class Practica02BonziBuddy{
                     else visitante.prestamoExpress(material);
                 }
 
+=======
+                visitante.pedirLibro(material);
+>>>>>>> 9f3ede96a7d87be5648e7bbbe889267ae11c940e
                 break;
             }
         }
     }
 
-    public static void recorrerRevistas(BiblioRevistas revistas, Usuario visitante, List<Material> prestados, int tipoDeRenta){
+    /**
+     * Permite recorrer la lista de Revistas de alguna categoria y poder pedir prestada alguna
+     * 
+     * @param revistas revistas disponibles para prestamo
+     * @param visitante El usuario que interactua con la biblioteca
+     */
+    public static void recorrerRevistas(BiblioRevistas revistas, Usuario visitante){
         Scanner sc = new Scanner(System.in);
         int opcion;
         String eleccion;
@@ -204,15 +221,19 @@ public class Practica02BonziBuddy{
             eleccion = sc.nextLine();
             opcion = Integer.parseInt(eleccion);
             if (opcion == 1){
-                if (material.getEstaLibre()) prestados.add(material);
-                if (tipoDeRenta == 1)visitante.pedirLibro(material);
-                else visitante.prestamoExpress(material);                
+                visitante.pedirLibro(material);
                 break;
             }
         }
     }
 
-    public static void recorrerAudiolibros(BiblioAudiolibros audiolibros, Usuario visitante, List<Material> prestados, int tipoDeRenta){
+    /**
+     * permite recorrerlos audioLibros de una categoria y poder pedir prestado uno
+     * 
+     * @param audiolibros audioLibros disponibles
+     * @param visitante El usuario que interactua con la biblioteca
+     */
+    public static void recorrerAudiolibros(BiblioAudiolibros audiolibros, Usuario visitante){
         Scanner sc = new Scanner(System.in);
         int opcion;
         String eleccion;
@@ -221,12 +242,9 @@ public class Practica02BonziBuddy{
             eleccion = sc.nextLine();
             opcion = Integer.parseInt(eleccion);
             if (opcion == 1){
-                if (material.getEstaLibre()) prestados.add(material);
-                if (tipoDeRenta == 1)visitante.pedirLibro(material);
-                else visitante.prestamoExpress(material);                
+                visitante.pedirLibro(material);
                 break;
             }
         }
     }
-
 }
