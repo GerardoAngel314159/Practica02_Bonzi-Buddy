@@ -70,7 +70,7 @@ public class EstadoActivo implements EstadoUsuario{
                 + usuario.getMaterial().getLimite() + " dias");
             }
             else {
-                System.out.println("Ya ha excedido el llimite de renovaciones"
+                System.out.println("Ya ha excedido el limite de renovaciones"
                 + " por favor regrese el libro en cuanto llegue a su fecha límite");
             }
         } else {
